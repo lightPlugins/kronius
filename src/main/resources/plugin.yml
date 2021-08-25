@@ -1,0 +1,10 @@
+name: kronius
+author: lightPlugins
+version: 1.0
+main: de.lightPlugins.organisation.Main
+api-version: 1.17
+softdepend: []
+#load: STARTUP
+#loadbefore: [XCore, SkyblockX]
+commands:
+  kronius:
