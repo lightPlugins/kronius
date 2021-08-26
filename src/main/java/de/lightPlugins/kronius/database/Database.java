@@ -1,7 +1,7 @@
-package de.lightPlugins.database;
+package de.lightPlugins.kronius.database;
 
 import com.zaxxer.hikari.HikariDataSource;
-import de.lightPlugins.organisation.Main;
+import de.lightPlugins.kronius.organisation.Main;
 
 public class Database {
 

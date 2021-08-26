@@ -1,8 +1,8 @@
-package de.lightPlugins.commands;
+package de.lightPlugins.kronius.commands;
 
-import de.lightPlugins.database.KronieDesLebens;
-import de.lightPlugins.kronien.FallingKronien;
-import de.lightPlugins.organisation.Main;
+import de.lightPlugins.kronius.database.KronieDesLebens;
+import de.lightPlugins.kronius.kronien.FallingKronien;
+import de.lightPlugins.kronius.organisation.Main;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;

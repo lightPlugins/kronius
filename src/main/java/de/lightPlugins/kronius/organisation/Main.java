@@ -1,10 +1,10 @@
-package de.lightPlugins.organisation;
+package de.lightPlugins.kronius.organisation;
 
 import com.zaxxer.hikari.HikariDataSource;
-import de.lightPlugins.commands.DefineKronien;
-import de.lightPlugins.database.Database;
-import de.lightPlugins.database.KronieLocationsTable;
-import de.lightPlugins.respawnSystem.Respawner;
+import de.lightPlugins.kronius.commands.DefineKronien;
+import de.lightPlugins.kronius.database.Database;
+import de.lightPlugins.kronius.database.KronieLocationsTable;
+import de.lightPlugins.kronius.respawnSystem.Respawner;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

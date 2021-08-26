@@ -1,11 +1,10 @@
-package de.lightPlugins.kronien;
+package de.lightPlugins.kronius.kronien;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 public class FallingKronien {

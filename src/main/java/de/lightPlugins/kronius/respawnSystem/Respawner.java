@@ -1,10 +1,9 @@
-package de.lightPlugins.respawnSystem;
+package de.lightPlugins.kronius.respawnSystem;
 
-import de.lightPlugins.kronien.FallingKronien;
-import de.lightPlugins.organisation.Main;
+import de.lightPlugins.kronius.kronien.FallingKronien;
+import de.lightPlugins.kronius.organisation.Main;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Particle;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;

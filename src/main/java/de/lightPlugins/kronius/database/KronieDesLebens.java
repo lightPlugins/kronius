@@ -1,6 +1,6 @@
-package de.lightPlugins.database;
+package de.lightPlugins.kronius.database;
 
-import de.lightPlugins.organisation.Main;
+import de.lightPlugins.kronius.organisation.Main;
 import org.bukkit.Bukkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
