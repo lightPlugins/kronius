@@ -2,7 +2,7 @@
   <artifact type="jar" name="lightGems:jar">
     <output-path>$PROJECT_DIR$/../jars</output-path>
     <root id="archive" name="lightGems.jar">
-      <element id="module-output" name="lightGems" />
+      <element id="module-output" name="kronius" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mariadb/jdbc/mariadb-java-client/2.1.2/mariadb-java-client-2.1.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/3.4.4/HikariCP-3.4.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar" path-in-jar="/" />
