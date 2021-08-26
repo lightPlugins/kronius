@@ -37,12 +37,12 @@ public class DefineKronien implements CommandExecutor, Listener {
             if(args[0].equalsIgnoreCase("add")) {
                 if(args[1].equalsIgnoreCase("kronie-des-lebens")) {
                     FallingKronien fallingKronien = new FallingKronien();
-                    fallingKronien.fallingBlockNow(player.getLocation().subtract(0,1,0), Material.AMETHYST_BLOCK, 15);
+                    fallingKronien.fallingBlockNow(player.getLocation().subtract(0.5,0,0.5), Material.AMETHYST_BLOCK, 15);
                     KronieDesLebens kronieDesLebens = new KronieDesLebens(plugin);
                     kronieDesLebens.setKronieLocation(player.getWorld().getName(),
-                            player.getLocation().getX(),
-                            player.getLocation().getY(),
-                            player.getLocation().getZ());
+                            (int)player.getLocation().getX(),
+                            (int)player.getLocation().getY(),
+                            (int)player.getLocation().getZ());
                     sender.sendMessage("Kronie des Lebens wurde erfolgreich gespawnt und in der Datenbank gespeichert.");
 
                 }
@@ -59,7 +59,7 @@ public class DefineKronien implements CommandExecutor, Listener {
             Block block = event.getBlock();
             Location location = event.getEntity().getLocation().subtract(0,1,0);
             String worldName = event.getBlock().getWorld().getName();
-            Bukkit.getWorld(worldName).spawnParticle(Particle.HEART, location.add(0,1,0), 1);
+            Bukkit.getWorld(worldName).spawnParticle(Particle.SPELL_INSTANT, location.add(0.5,2,0.5), 10);
 
         }
     }
