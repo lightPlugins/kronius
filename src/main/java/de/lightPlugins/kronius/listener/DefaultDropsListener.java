@@ -51,11 +51,7 @@ public class DefaultDropsListener implements Listener {
 
                 for(String drops : dropsConfig.getStringList(finalString + "drop-list")) {
 
-
-
                     String[] array = drops.split(";");
-
-                    event.getPlayer().sendMessage("test " + array[1] + " " + array[2]);
 
                     String itemName = array[0];
                     int min = Integer.parseInt(array[1]);
