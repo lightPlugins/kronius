@@ -5,5 +5,5 @@ drops:
       - world1
       - yourWorld
     drop-list:
-      # itemID;min;max;chance
+      # itemID;min;max;chance - min 1 & max 2 = only 1 Item drop caused on nextInt() !
       - 'up-item;1;2;100'

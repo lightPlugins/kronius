@@ -24,9 +24,8 @@ public class Main extends JavaPlugin {
     public void onLoad() {
 
         getInstance = this;
-        double pluginVersion = 1.0;
-        Bukkit.getLogger().log(Level.FINE, "Try load plugin Kronius v" + pluginVersion);
-        Bukkit.getLogger().log(Level.FINE, "This plugin is licenced by lightPlugins");
+        Bukkit.getLogger().log(Level.FINE, "Try to load plugin Kronius v" + Bukkit.getVersion());
+        Bukkit.getLogger().log(Level.FINE, "This plugin is licenced by lightPlugins.");
 
     }
 

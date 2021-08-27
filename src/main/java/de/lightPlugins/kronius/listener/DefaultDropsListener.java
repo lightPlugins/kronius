@@ -8,9 +8,15 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.PrepareItemCraftEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Objects;
 
 public class DefaultDropsListener implements Listener {
 
@@ -68,6 +74,17 @@ public class DefaultDropsListener implements Listener {
                     }
                 }
             }
+        }
+    }
+
+    @EventHandler
+    public void onCraft(CraftItemEvent e) {
+        HumanEntity he = e.getWhoClicked();
+        if(e.getInventory().getResult().getType().equals(Material.IRON_AXE)) {
+            e.setCancelled(true);
+            e.getInventory().setResult(new ItemStack(Material.AIR));
+            he.sendMessage("nicht erlaubt");
+            //he.closeInventory();
         }
     }
 }
