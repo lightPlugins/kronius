@@ -1,0 +1,9 @@
+drops:
+  COAL_ORE:
+    vanilla-drops: true
+    blacklist-worlds:
+      - world1
+      - yourWorld
+    drop-list:
+      # itemID;min;max;chance
+      - 'up-item;1;2;100'

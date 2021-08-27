@@ -1,0 +1,11 @@
+items:
+  up-item:
+    material: COAL
+    display-name: 'UpItem'
+    tag-name: '&e%owner% &7- &e%amount%&7x &eUpItem'
+    only-owner: true
+    glow: true
+    lore:
+      - '&7- &eMit diesem Item kannst du dein EQ'
+      - 'verbessern.'
+    exp: 10
