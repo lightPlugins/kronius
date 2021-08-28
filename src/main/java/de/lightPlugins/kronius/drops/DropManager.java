@@ -34,6 +34,7 @@ public class DropManager {
         String itemName = colorTranslation.hexTranslation(configuration.getString(finalPath + "display-name"));
         String tagName = colorTranslation.hexTranslation(configuration.getString(finalPath + "tag-name"));
         int experience = configuration.getInt(finalPath + "exp");
+        int customTexture = configuration.getInt(finalPath + "custom-texture");
 
 
         ItemStack itemStack = new ItemStack(material, amount);
@@ -43,6 +44,7 @@ public class DropManager {
 
         itemMeta.setDisplayName(itemName);
         itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        itemMeta.setCustomModelData(255650);
 
         if(glow) {
             itemMeta.addEnchant(Enchantment.ARROW_DAMAGE,1, true);

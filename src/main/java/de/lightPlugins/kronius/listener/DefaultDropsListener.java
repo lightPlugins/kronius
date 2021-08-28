@@ -15,8 +15,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Objects;
-
 public class DefaultDropsListener implements Listener {
 
     private final Main plugin;
@@ -51,8 +49,6 @@ public class DefaultDropsListener implements Listener {
                 String finalString = "drops." + mat + ".";
                 boolean vanillaDrops = dropsConfig.getBoolean(finalString + "vanilla-drops");
                 event.setDropItems(vanillaDrops);
-                event.setExpToDrop(dropsConfig.getInt(finalString + "exp"));
-
 
                 for(String drops : dropsConfig.getStringList(finalString + "drop-list")) {
 
@@ -67,9 +63,11 @@ public class DefaultDropsListener implements Listener {
                     int amount = randomizer.getRandomInt(min, max);
 
                     if(randomizer.getLucky(dropChance)) {
-                        DropManager dropManager = new DropManager(plugin);
-                        dropManager.dropIt(amount, itemName, location, event.getPlayer());
-
+                        if(!event.getBlock().getDrops().isEmpty()) {
+                            DropManager dropManager = new DropManager(plugin);
+                            dropManager.dropIt(amount, itemName, location, event.getPlayer());
+                            event.setExpToDrop(dropsConfig.getInt(finalString + "exp"));
+                        }
                     }
                 }
             }
