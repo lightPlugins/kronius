@@ -43,7 +43,7 @@ public class Main extends JavaPlugin {
         /*  ###########################  */
         /* Try to connect to Hikari Database with Connection Pools of 10 */
 
-        this.hikari = new Database(this);
+        //this.hikari = new Database(this);
         //this.hikari.connectToDatabaseViaMySQL();
 
         //KronieLocationsTable kronieLocationsTable = new KronieLocationsTable(this);
