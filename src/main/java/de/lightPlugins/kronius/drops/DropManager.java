@@ -2,6 +2,7 @@ package de.lightPlugins.kronius.drops;
 
 import de.lightPlugins.kronius.organisation.Main;
 import de.lightPlugins.kronius.utils.ColorTranslation;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -44,7 +45,8 @@ public class DropManager {
 
         itemMeta.setDisplayName(itemName);
         itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        itemMeta.setCustomModelData(255650);
+        itemMeta.setCustomModelData(customTexture);
+
 
         if(glow) {
             itemMeta.addEnchant(Enchantment.ARROW_DAMAGE,1, true);
@@ -69,5 +71,6 @@ public class DropManager {
                 .replace("%amount%", String.valueOf(amount)));
         item.setCustomNameVisible(true);
         location.getWorld().spawn(location, ExperienceOrb.class).setExperience(experience);
+
     }
 }

@@ -1,0 +1,16 @@
+pickaxe:
+  wood:
+    enable: true
+    material: STONE_PICKAXE
+    up-chance-default: 45
+    up-chance-magic-stone: 85
+    needed-up-material:
+      - 'bernstein;32'
+      - 'citrin;32'
+    enchantments:
+      - LOOT_BONUS_BLOCKS;1
+      - DIG_SPEED;1
+      - DAMAGE_ALL;1
+      - KNOCKBACK;1
+      - LOOT_BONUS_MOBS;1
+      -

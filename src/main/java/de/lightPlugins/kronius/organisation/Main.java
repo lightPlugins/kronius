@@ -46,9 +46,6 @@ public class Main extends JavaPlugin {
         //this.hikari = new Database(this);
         //this.hikari.connectToDatabaseViaMySQL();
 
-        //KronieLocationsTable kronieLocationsTable = new KronieLocationsTable(this);
-        //kronieLocationsTable.createTable();
-
         /*  ###########################  */
 
         PluginManager pluginManager = Bukkit.getPluginManager();

@@ -3,6 +3,7 @@ package de.lightPlugins.kronius.listener;
 import de.lightPlugins.kronius.drops.DropManager;
 import de.lightPlugins.kronius.organisation.Main;
 import de.lightPlugins.kronius.utils.Randomizer;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -13,6 +14,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class DefaultDropsListener implements Listener {
@@ -83,5 +85,10 @@ public class DefaultDropsListener implements Listener {
             he.sendMessage("nicht erlaubt");
             //he.closeInventory();
         }
+    }
+
+    @EventHandler
+    public void onDurability(PlayerItemDamageEvent event) {
+        event.setCancelled(true);
     }
 }
