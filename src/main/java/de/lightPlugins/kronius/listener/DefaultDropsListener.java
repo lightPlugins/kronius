@@ -10,12 +10,19 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityBreedEvent;
+import org.bukkit.event.entity.VillagerReplenishTradeEvent;
+import org.bukkit.event.inventory.*;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.Locale;
 
 public class DefaultDropsListener implements Listener {
 
@@ -32,6 +39,7 @@ public class DefaultDropsListener implements Listener {
         Block block = event.getBlock();
         Material material = block.getType();
         Location location = block.getLocation();
+        Player player = event.getPlayer();
 
         /*      Overworld Materials     */
 
@@ -65,11 +73,11 @@ public class DefaultDropsListener implements Listener {
                     int amount = randomizer.getRandomInt(min, max);
 
                     if(randomizer.getLucky(dropChance)) {
-                        if(!event.getBlock().getDrops().isEmpty()) {
-                            DropManager dropManager = new DropManager(plugin);
-                            dropManager.dropIt(amount, itemName, location, event.getPlayer());
-                            event.setExpToDrop(dropsConfig.getInt(finalString + "exp"));
-                        }
+
+                        DropManager dropManager = new DropManager(plugin);
+                        dropManager.dropIt(amount, itemName, location, event.getPlayer());
+                        event.setExpToDrop(dropsConfig.getInt(finalString + "exp"));
+
                     }
                 }
             }
@@ -79,16 +87,46 @@ public class DefaultDropsListener implements Listener {
     @EventHandler
     public void onCraft(CraftItemEvent e) {
         HumanEntity he = e.getWhoClicked();
-        if(e.getInventory().getResult().getType().equals(Material.IRON_AXE)) {
-            e.setCancelled(true);
-            e.getInventory().setResult(new ItemStack(Material.AIR));
-            he.sendMessage("nicht erlaubt");
-            //he.closeInventory();
+        FileConfiguration conf = plugin.forbiddenCrafting.getConfig();
+
+
+        for(String mat : conf.getStringList("forbidden-crafting.items")) {
+            Material material = Material.valueOf(mat);
+            if(e.getInventory().getResult().getType().equals(material)) {
+                e.setCancelled(true);
+                e.getInventory().setResult(new ItemStack(Material.AIR));
+                he.sendMessage("nicht erlaubt");
+                //he.closeInventory();
+            }
         }
     }
 
     @EventHandler
     public void onDurability(PlayerItemDamageEvent event) {
         event.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onLevelCheck(BlockBreakEvent event) {
+        if(event.getPlayer().getLevel() >= 50) {
+            event.setExpToDrop(0);
+        }
+    }
+
+    @EventHandler
+    public void onCooking(FurnaceExtractEvent event) {
+        event.setExpToDrop(0);
+    }
+
+    @EventHandler
+    public void onEntityFeed(EntityBreedEvent event) {
+        event.setExperience(0);
+    }
+
+    @EventHandler
+    public void onOrePlace(BlockPlaceEvent event) {
+        if(event.getBlock().getType().equals(Material.DIAMOND_ORE)) {
+            event.setCancelled(true);
+        }
     }
 }

@@ -19,6 +19,7 @@ public class Main extends JavaPlugin {
     public Database hikari;
     public FileManager drops;
     public FileManager items;
+    public FileManager forbiddenCrafting;
 
     @Override
     public void onLoad() {
@@ -38,6 +39,9 @@ public class Main extends JavaPlugin {
 
         items = new FileManager(this, "items.yml");
         items.saveDefaultConfig();
+
+        forbiddenCrafting = new FileManager(this, "forbidden.yml");
+        forbiddenCrafting.saveDefaultConfig();
 
 
         /*  ###########################  */

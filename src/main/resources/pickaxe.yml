@@ -1,7 +1,26 @@
 pickaxe:
-  wood:
-    enable: true
-    material: STONE_PICKAXE
+  STONE_PICKAXE:
+    level: 10
+    up-chance-default: 45
+    up-chance-magic-stone: 85
+    needed-up-material:
+      - 'bernstein;32'
+      - 'citrin;32'
+      - 'COAL;32'
+    enchantments:
+      - LOOT_BONUS_BLOCKS;1
+      - DIG_SPEED;1
+      - DAMAGE_ALL;1
+      - KNOCKBACK;1
+      - LOOT_BONUS_MOBS;1
+      - LUCK;1
+      - SMELTING;1
+    stark-gegen-Monster: 1
+    stark-gegen-Bosse: 1
+    stark-gegen-Spieler: 1
+    stark-gegen-Mobs: 1
+  IRON_PICKAXE:
+    level: 10
     up-chance-default: 45
     up-chance-magic-stone: 85
     needed-up-material:
@@ -13,4 +32,8 @@ pickaxe:
       - DAMAGE_ALL;1
       - KNOCKBACK;1
       - LOOT_BONUS_MOBS;1
-      -
+      - LUCK;1
+    stark-gegen-Monster: 1
+    stark-gegen-Bosse: 1
+    stark-gegen-Spieler: 1
+    stark-gegen-Mobs: 1

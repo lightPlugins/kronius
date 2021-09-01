@@ -70,7 +70,9 @@ public class DropManager {
                 .replace("%owner%", player.getName())
                 .replace("%amount%", String.valueOf(amount)));
         item.setCustomNameVisible(true);
-        location.getWorld().spawn(location, ExperienceOrb.class).setExperience(experience);
 
+        if(player.getLevel() < 50) {
+            location.getWorld().spawn(location, ExperienceOrb.class).setExperience(experience);
+        }
     }
 }
