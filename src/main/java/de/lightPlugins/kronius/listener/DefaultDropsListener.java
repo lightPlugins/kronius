@@ -23,6 +23,7 @@ import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class DefaultDropsListener implements Listener {
 
@@ -43,7 +44,7 @@ public class DefaultDropsListener implements Listener {
 
         /*      Overworld Materials     */
 
-        for(String mat : dropsConfig.getConfigurationSection("drops").getKeys(false)) {
+        for(String mat : Objects.requireNonNull(dropsConfig.getConfigurationSection("drops")).getKeys(false)) {
 
             Material configMaterial = Material.valueOf(mat);
             if(material.equals(configMaterial)) {
@@ -92,10 +93,9 @@ public class DefaultDropsListener implements Listener {
 
         for(String mat : conf.getStringList("forbidden-crafting.items")) {
             Material material = Material.valueOf(mat);
-            if(e.getInventory().getResult().getType().equals(material)) {
+            if(Objects.requireNonNull(e.getInventory().getResult()).getType().equals(material)) {
                 e.setCancelled(true);
                 e.getInventory().setResult(new ItemStack(Material.AIR));
-                he.sendMessage("nicht erlaubt");
                 //he.closeInventory();
             }
         }

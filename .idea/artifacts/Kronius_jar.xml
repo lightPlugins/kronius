@@ -1,12 +1,13 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="kronius:jar">
-    <output-path>$USER_HOME$/Documents/Java Development/jars</output-path>
-    <root id="archive" name="kronius.jar">
-      <element id="module-output" name="kronius" />
+  <artifact type="jar" name="Kronius:jar">
+    <output-path>$PROJECT_DIR$/../jars/kronius</output-path>
+    <root id="archive" name="Kronius.jar">
+      <element id="module-output" name="Kronius" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/3.4.4/HikariCP-3.4.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mariadb/jdbc/mariadb-java-client/2.1.2/mariadb-java-client-2.1.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/3.4.4/HikariCP-3.4.4.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.1.2" />
     </root>
   </artifact>
 </component>

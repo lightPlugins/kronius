@@ -5,10 +5,12 @@ import de.lightPlugins.kronius.commands.KroniusCommand;
 import de.lightPlugins.kronius.database.Database;
 import de.lightPlugins.kronius.listener.DefaultDropsListener;
 import de.lightPlugins.kronius.manager.FileManager;
+import de.lightPlugins.kronius.stones.CustomStone;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.util.Objects;
 import java.util.logging.Level;
 
@@ -19,6 +21,7 @@ public class Main extends JavaPlugin {
     public Database hikari;
     public FileManager drops;
     public FileManager items;
+    public FileManager stone_storage;
     public FileManager forbiddenCrafting;
 
     @Override
@@ -40,6 +43,9 @@ public class Main extends JavaPlugin {
         items = new FileManager(this, "items.yml");
         items.saveDefaultConfig();
 
+        stone_storage = new FileManager(this, "stone-storage.yml");
+        stone_storage.saveDefaultConfig();
+
         forbiddenCrafting = new FileManager(this, "forbidden.yml");
         forbiddenCrafting.saveDefaultConfig();
 
@@ -56,6 +62,7 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new DefaultDropsListener(this), this);
 
         Objects.requireNonNull(this.getCommand("kronius")).setExecutor(new KroniusCommand(this));
+        Objects.requireNonNull(this.getCommand("stones")).setExecutor(new CustomStone());
 
     }
 

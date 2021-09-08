@@ -1,12 +1,65 @@
 items:
   bernstein:
-    material: COAL
-    display-name: 'UpItem'
-    tag-name: '&e%owner% &7- &e%amount%&7x &eUpItem'
+    material: PAPER
+    display-name: '#ffda01Bernstein'
+    tag-name: '&e%owner% &7- &e%amount%&7x #ffda01Bernstein'
     only-owner: true
-    glow: true
+    glow: false
     lore:
-      - '&7- &eMit diesem Item kannst du dein EQ'
-      - 'verbessern.'
-    exp: 10
-    custom-texture: 255650
+      - '&8//     &7###### &8• &fInfo &8• &7######     &8\\ '
+      - ' '
+      - '&8- &7Dieser seltene #ffda01Bernstein'
+      - '   &7wird verwendet, um'
+      - '   &7Ausrüstungsgegenstände'
+      - '   &7zu verbessern.'
+      - ''
+    exp: 2
+    custom-texture: 1
+  citrin:
+    material: PAPER
+    display-name: '#FF9632Citrin'
+    tag-name: '&e%owner% &7- &e%amount%&7x #FF9632Citrin'
+    only-owner: true
+    glow: false
+    lore:
+      - '&8//     &7###### &8• &fInfo &8• &7######     &8\\ '
+      - ' '
+      - '&8- &7Dieser geschliffener #FF9632Citrin'
+      - '   &7wird verwendet, um'
+      - '   &7Ausrüstungsgegenstände'
+      - '   &7zu verbessern.'
+      - ''
+    exp: 2
+    custom-texture: 2
+  jade:
+    material: PAPER
+    display-name: '#00BD53Jade'
+    tag-name: '&e%owner% &7- &e%amount%&7x #00BD53Jade'
+    only-owner: true
+    glow: false
+    lore:
+      - '&8//     &7###### &8• &fInfo &8• &7######     &8\\ '
+      - ' '
+      - '&8- &7Dieser feine #00BD53Jade &7Stein'
+      - '   &7wird verwendet, um'
+      - '   &7Ausrüstungsgegenstände'
+      - '   &7zu verbessern.'
+      - ''
+    exp: 2
+    custom-texture: 3
+  malachit:
+    material: PAPER
+    display-name: '#1BBC93Malachit'
+    tag-name: '&e%owner% &7- &e%amount%&7x #1BBC93Malachit'
+    only-owner: true
+    glow: false
+    lore:
+      - '&8//     &7###### &8• &fInfo &8• &7######     &8\\ '
+      - ' '
+      - '&8- &7Dieser feine #1BBC93Malachit'
+      - '   &7wird verwendet, um'
+      - '   &7Ausrüstungsgegenstände'
+      - '   &7zu verbessern.'
+      - ''
+    exp: 2
+    custom-texture: 4
