@@ -1,9 +1,9 @@
 package de.lightPlugins.kronius.listener;
 
-import de.lightPlugins.kronius.drops.DropManager;
+import de.lightPlugins.kronius.manager.DropManager;
+import de.lightPlugins.kronius.manager.RegenerationManager;
 import de.lightPlugins.kronius.organisation.Main;
 import de.lightPlugins.kronius.utils.Randomizer;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -16,13 +16,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityBreedEvent;
-import org.bukkit.event.entity.VillagerReplenishTradeEvent;
 import org.bukkit.event.inventory.*;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Locale;
 import java.util.Objects;
 
 public class DefaultDropsListener implements Listener {
@@ -41,6 +38,8 @@ public class DefaultDropsListener implements Listener {
         Material material = block.getType();
         Location location = block.getLocation();
         Player player = event.getPlayer();
+
+        block.setType(Material.BEDROCK);
 
         /*      Overworld Materials     */
 
@@ -83,6 +82,9 @@ public class DefaultDropsListener implements Listener {
                 }
             }
         }
+
+        RegenerationManager regenerationManager = new RegenerationManager(plugin);
+        regenerationManager.regenerate(location, 1, material);
     }
 
     @EventHandler

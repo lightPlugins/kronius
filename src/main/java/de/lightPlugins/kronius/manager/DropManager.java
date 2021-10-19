@@ -1,4 +1,4 @@
-package de.lightPlugins.kronius.drops;
+package de.lightPlugins.kronius.manager;
 
 import de.lightPlugins.kronius.organisation.Main;
 import de.lightPlugins.kronius.utils.ColorTranslation;
