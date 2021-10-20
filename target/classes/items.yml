@@ -63,3 +63,19 @@ items:
       - ''
     exp: 2
     custom-texture: 4
+  erzkiste1:
+    material: PAPER
+    display-name: '#1BBC93Erziste Tier 1'
+    tag-name: '&e%owner% &7- &e%amount%&7x #1BBC93Malachit'
+    only-owner: true
+    glow: false
+    lore:
+      - '&8//     &7###### &8• &fInfo &8• &7######     &8\\ '
+      - ' '
+      - '&8- &7Dieser feine #1BBC93Malachit'
+      - '   &7wird verwendet, um'
+      - '   &7Ausrüstungsgegenstände'
+      - '   &7zu verbessern.'
+      - ''
+    exp: 2
+    custom-texture: 4

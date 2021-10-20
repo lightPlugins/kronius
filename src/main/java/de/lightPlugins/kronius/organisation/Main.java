@@ -5,7 +5,7 @@ import de.lightPlugins.kronius.commands.KroniusCommand;
 import de.lightPlugins.kronius.database.Database;
 import de.lightPlugins.kronius.listener.DefaultDropsListener;
 import de.lightPlugins.kronius.manager.FileManager;
-import de.lightPlugins.kronius.stones.CustomStone;
+import de.lightPlugins.kronius.utils.CustomRecipes;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,6 +23,7 @@ public class Main extends JavaPlugin {
     public FileManager items;
     public FileManager stone_storage;
     public FileManager forbiddenCrafting;
+    public FileManager customRecipes;
 
     @Override
     public void onLoad() {
@@ -49,6 +50,18 @@ public class Main extends JavaPlugin {
         forbiddenCrafting = new FileManager(this, "forbidden.yml");
         forbiddenCrafting.saveDefaultConfig();
 
+        customRecipes = new FileManager(this, "recipes.yml");
+        customRecipes.saveDefaultConfig();
+
+        /*  ###########################  */
+        /* ADD custom crafting Recipes */
+
+        CustomRecipes customRecipes = new CustomRecipes(this);
+        customRecipes.generateCustomRecipes();
+
+        /*  ###########################  */
+
+
 
         /*  ###########################  */
         /* Try to connect to Hikari Database with Connection Pools of 10 */
@@ -62,7 +75,6 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new DefaultDropsListener(this), this);
 
         Objects.requireNonNull(this.getCommand("kronius")).setExecutor(new KroniusCommand(this));
-        Objects.requireNonNull(this.getCommand("stones")).setExecutor(new CustomStone());
 
     }
 

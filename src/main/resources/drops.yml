@@ -3,7 +3,7 @@ drops:
     vanilla-drops: true
     replacement:
       time: 50
-      material: BEDROCK
+      material: STONE
     blacklist-worlds:
       - world1
       - yourWorld

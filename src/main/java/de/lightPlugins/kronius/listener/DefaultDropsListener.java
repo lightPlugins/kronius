@@ -1,10 +1,11 @@
 package de.lightPlugins.kronius.listener;
 
 import de.lightPlugins.kronius.manager.DropManager;
-import de.lightPlugins.kronius.manager.RegenerationManager;
 import de.lightPlugins.kronius.organisation.Main;
 import de.lightPlugins.kronius.utils.Randomizer;
-import org.bukkit.*;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.HumanEntity;
@@ -18,7 +19,7 @@ import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Objects;
+import java.util.Locale;
 
 public class DefaultDropsListener implements Listener {
 
@@ -37,22 +38,13 @@ public class DefaultDropsListener implements Listener {
         Location location = block.getLocation();
         Player player = event.getPlayer();
 
-
         /*      Overworld Materials     */
 
-        for(String mat : Objects.requireNonNull(dropsConfig.getConfigurationSection("drops")).getKeys(false)) {
+        for(String mat : dropsConfig.getConfigurationSection("drops").getKeys(false)) {
 
             Material configMaterial = Material.valueOf(mat);
             if(material.equals(configMaterial)) {
 
-                int timer = dropsConfig.getInt("drops." + mat + ".replacement.time");
-                Material replacementMat = Material.valueOf(dropsConfig.getString("drops." + mat + ".replacement.material"));
-
-                RegenerationManager regenerationManager = new RegenerationManager(plugin);
-                regenerationManager.regenerate(location, timer, configMaterial, replacementMat);
-
-                Objects.requireNonNull(location.getWorld()).spawnParticle(Particle.HEART, location.add(0.5,0,0.5), 1);
-                location.getWorld().playSound(location, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 
                 World world = event.getPlayer().getWorld();
                 for(String configWorld : dropsConfig.getStringList("drops." + mat + ".blacklist-worlds")) {
@@ -87,8 +79,6 @@ public class DefaultDropsListener implements Listener {
                 }
             }
         }
-
-
     }
 
     @EventHandler
@@ -99,9 +89,10 @@ public class DefaultDropsListener implements Listener {
 
         for(String mat : conf.getStringList("forbidden-crafting.items")) {
             Material material = Material.valueOf(mat);
-            if(Objects.requireNonNull(e.getInventory().getResult()).getType().equals(material)) {
+            if(e.getInventory().getResult().getType().equals(material)) {
                 e.setCancelled(true);
                 e.getInventory().setResult(new ItemStack(Material.AIR));
+                he.sendMessage("nicht erlaubt");
                 //he.closeInventory();
             }
         }
