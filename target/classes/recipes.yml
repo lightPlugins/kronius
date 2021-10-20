@@ -1,9 +1,11 @@
 recipes:
-  test:
-    materials:
-      - FLINT;1
-      - DIRT;2
-    receip:
-      - '0;1;0'
-      - '2;2;2'
-      - '1;1;1'
+  bernstein+:
+    #from items.yml !!!
+    result-ID: bernstein+
+    amount: 1
+    shape:
+      line-1: " A "
+      line-2: " A "
+      line-3: " A "
+    define:
+      A: bernstein;2
