@@ -33,7 +33,8 @@ public class RegenerationManager {
                 location.getBlock().setType(material);
                 ItemStack is = new ItemStack(material, 1);
 
-                Objects.requireNonNull(location.getWorld()).spawnParticle(Particle.BLOCK_CRACK, location.add(0.5,0.5,0.5), 10, is);
+                Objects.requireNonNull(location.getWorld()).spawnParticle(Particle.BLOCK_CRACK,
+                        location.add(0.5,0.5,0.5), 10, is);
                 }
 
         }.runTaskLater(plugin, time*20);

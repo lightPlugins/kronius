@@ -1,11 +1,10 @@
 package de.lightPlugins.kronius.listener;
 
 import de.lightPlugins.kronius.manager.DropManager;
+import de.lightPlugins.kronius.manager.RegenerationManager;
 import de.lightPlugins.kronius.organisation.Main;
 import de.lightPlugins.kronius.utils.Randomizer;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.HumanEntity;
@@ -20,6 +19,7 @@ import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class DefaultDropsListener implements Listener {
 
@@ -56,6 +56,15 @@ public class DefaultDropsListener implements Listener {
                 String finalString = "drops." + mat + ".";
                 boolean vanillaDrops = dropsConfig.getBoolean(finalString + "vanilla-drops");
                 event.setDropItems(vanillaDrops);
+
+                Material regen = Material.valueOf(dropsConfig.getString("drops." + mat + ".replacement.material"));
+                int time = dropsConfig.getInt("drops." + mat + ".replacement.time");
+
+                RegenerationManager regenerationManager = new RegenerationManager(plugin);
+                regenerationManager.regenerate(location, time, material, regen);
+
+                Objects.requireNonNull(location.getWorld()).spawnParticle(Particle.HEART, location.add(0.5,0,0.5), 1);
+                location.getWorld().playSound(location, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 
                 for(String drops : dropsConfig.getStringList(finalString + "drop-list")) {
 

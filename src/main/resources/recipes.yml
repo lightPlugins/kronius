@@ -1,11 +1,11 @@
 recipes:
-  bernstein:
-    //from items.yml !!!
-    result-ID: bernstein
+  bernstein+:
+    #from items.yml !!!
+    result-ID: bernstein+
     amount: 1
     shape:
-      line-1: "-A-"
-      line-2: "-A-"
-      line-3: "-A-"
+      line-1: " A "
+      line-2: " A "
+      line-3: " A "
     define:
-      A: STONE
+      A: bernstein;2

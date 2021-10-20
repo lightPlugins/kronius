@@ -57,7 +57,7 @@ public class Main extends JavaPlugin {
         /* ADD custom crafting Recipes */
 
         CustomRecipes customRecipes = new CustomRecipes(this);
-        customRecipes.generateCustomRecipes();
+        //customRecipes.setRecipe();
 
         /*  ###########################  */
 

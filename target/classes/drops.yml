@@ -1,9 +1,15 @@
 drops:
   COAL_ORE:
     vanilla-drops: true
+    replacement:
+      time: 50
+      material: STONE
     blacklist-worlds:
       - world1
       - yourWorld
     drop-list:
       # itemID;min;max;chance - min 1 & max 2 = only 1 Item drop caused on nextInt() !
-      - 'bernstein;1;2;100'
+      - 'bernstein;1;6;25'
+      - 'citrin;1;6;25'
+      - 'jade;1;6;25'
+      - 'malachit;1;6;25'

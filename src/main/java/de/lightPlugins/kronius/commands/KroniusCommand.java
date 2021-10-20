@@ -1,6 +1,7 @@
 package de.lightPlugins.kronius.commands;
 
 import de.lightPlugins.kronius.organisation.Main;
+import de.lightPlugins.kronius.utils.CustomItems;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -32,6 +33,15 @@ public class KroniusCommand implements CommandExecutor, Listener {
                     plugin.items.reloadConfig();
                     plugin.drops.reloadConfig();
                     player.sendMessage("Das Plugin wurde neu geladen");
+
+                }
+            }
+        } else if(args.length == 2) {
+            if(args[0].equalsIgnoreCase("give")) {
+                if(player.hasPermission("")) {
+                    CustomItems customItems = new CustomItems(plugin);
+                    player.getWorld().dropItem(player.getLocation(), customItems.getItemStack(args[1]));
+
 
                 }
             }
