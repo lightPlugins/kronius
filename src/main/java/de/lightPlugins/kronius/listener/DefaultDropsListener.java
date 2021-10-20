@@ -4,9 +4,7 @@ import de.lightPlugins.kronius.manager.DropManager;
 import de.lightPlugins.kronius.manager.RegenerationManager;
 import de.lightPlugins.kronius.organisation.Main;
 import de.lightPlugins.kronius.utils.Randomizer;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.HumanEntity;
@@ -39,7 +37,6 @@ public class DefaultDropsListener implements Listener {
         Location location = block.getLocation();
         Player player = event.getPlayer();
 
-        block.setType(Material.BEDROCK);
 
         /*      Overworld Materials     */
 
@@ -48,6 +45,14 @@ public class DefaultDropsListener implements Listener {
             Material configMaterial = Material.valueOf(mat);
             if(material.equals(configMaterial)) {
 
+                int timer = dropsConfig.getInt("drops." + mat + ".replacement.time");
+                Material replacementMat = Material.valueOf(dropsConfig.getString("drops." + mat + ".replacement.material"));
+
+                RegenerationManager regenerationManager = new RegenerationManager(plugin);
+                regenerationManager.regenerate(location, timer, configMaterial, replacementMat);
+
+                Objects.requireNonNull(location.getWorld()).spawnParticle(Particle.HEART, location.add(0.5,0,0.5), 1);
+                location.getWorld().playSound(location, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 
                 World world = event.getPlayer().getWorld();
                 for(String configWorld : dropsConfig.getStringList("drops." + mat + ".blacklist-worlds")) {
@@ -83,8 +88,7 @@ public class DefaultDropsListener implements Listener {
             }
         }
 
-        RegenerationManager regenerationManager = new RegenerationManager(plugin);
-        regenerationManager.regenerate(location, 1, material);
+
     }
 
     @EventHandler
